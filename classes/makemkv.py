@@ -159,6 +159,7 @@ class MakeMKV(object):
                 '--cache=%d' % self.cacheSize,
                 '--noscan',
                 '--decrypt',
+                '--profile=/root/.MakeMKV/profile.xml',
                 '--minlength=%d' % self.minLength
             ],
             stderr=subprocess.PIPE,

@@ -1,6 +1,7 @@
 FROM autorippr:latest
 RUN apt-get update && apt-get install -y default-jre-headless eject
-ADD settings.cfg /Autorippr/settings.cfg
+ADD settings.br.cfg /Autorippr/settings.br.cfg
+ADD settings.uhd.cfg /Autorippr/settings.uhd.cfg
 RUN mkdir /root/.MakeMKV
 RUN rm -rf /share/MakeMKV/default.mmcp.xml
 ADD default.mmcp.xml /root/.MakeMKV/profile.xml

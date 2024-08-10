@@ -4,4 +4,4 @@ if makemkvcon info disc:0 | grep HEVC; then
 else
   mv /Autorippr/settings.br.cfg /Autorippr/settings.cfg
 fi
-exec python /Autorippr/autorippr.py "$@"
+exec python2.7 /Autorippr/autorippr.py "$@"

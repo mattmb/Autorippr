@@ -9,7 +9,7 @@ ADD default.mmcp.xml /root/.MakeMKV/profile.xml
 #ADD keydb.cfg /root/.MakeMKV/keydb.cfg
 ADD br_uhd_switch.sh /Autorippr/br_uhd_switch.sh
 # This is a beta key published by makemkv
-RUN echo 'app_Key = "T-atm47dTZbMqXw1QucuIdgpDYCIq2HIsT5mQeOONtu_7oY9TJNJeiMEiuB07SC8YTiJ"' > /root/.MakeMKV/settings.conf
+RUN echo 'app_Key = "T-NDgYjBUFx5ju1nKbVMthSGSURiL0kEAnjOXD3MudnHtk5OPhXzuSjWbPEKFeBDA7C1"' > /root/.MakeMKV/settings.conf
 RUN echo 'app_UpdateEnable = "1"' >> /root/.MakeMKV/settings.conf
 RUN echo 'app_UpdateLastCheck = "18868"' > /root/.MakeMKV/update.conf
 #RUN mv /usr/lib/jvm/java-8-openjdk-amd64/bin/java /usr/lib/jvm/java-8-openjdk-amd64/bin/java.bak

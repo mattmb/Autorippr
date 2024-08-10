@@ -1,6 +1,5 @@
 FROM ubuntu:20.04
 
-
 RUN apt-get update && apt-get install software-properties-common -y
 COPY /build /
 
@@ -24,8 +23,8 @@ RUN /bin/bash -c 'source "$HOME/.cargo/env" && cargo install cargo-c && rustup t
 
 # Handbrake from source
 RUN git clone https://github.com/HandBrake/HandBrake.git && cd HandBrake && git checkout 1.8.1
-RUN cd HandBrake && ./configure --launch-jobs=$(nproc) --launch --disable-gtk --enable-libdovi
-RUN cd HandBrake/build && make && make install
+RUN /bin/bash -c 'cd HandBrake && source "$HOME/.cargo/env" && ./configure --launch-jobs=$(nproc) --launch --disable-gtk --enable-libdovi'
+RUN /bin/bash -c 'cd HandBrake/build && make install'
 
 ADD . /Autorippr
 

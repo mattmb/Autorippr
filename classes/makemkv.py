@@ -196,6 +196,8 @@ class MakeMKV(object):
                     self.log.warn(line)
                 elif "Failed to add angle" in line:
                     self.log.warn(line)
+                elif "default profile missing" in line:
+                    self.log.warn(line)
                 elif "SVQ downloading is disabled or failed" in line:
                     self.log.warn(line)
                 else:

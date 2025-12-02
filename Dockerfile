@@ -1,9 +1,9 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 RUN apt-get update && apt-get install software-properties-common -y
-COPY /build /
 
-RUN apt-get update && apt-get install --allow-unauthenticated -y libssl1.1 libexpat1 libavcodec-extra58 libgl1-mesa-glx unzip git libssl-dev
+#RUN apt-get update && apt-get install --allow-unauthenticated -y libssl1.1 libexpat1 libavcodec-extra58 libgl1-mesa-glx unzip git libssl-dev
+RUN apt-get update && apt-get install --allow-unauthenticated -y libssl3 libexpat1 libavcodec-extra58 libgl1-mesa-glx unzip git libssl-dev
 
 # HandBrake build deps
 RUN apt-get install -y autoconf automake build-essential cmake git libass-dev libbz2-dev libfontconfig-dev libfreetype-dev libfribidi-dev libharfbuzz-dev libjansson-dev liblzma-dev libmp3lame-dev libnuma-dev libogg-dev libopus-dev libsamplerate0-dev libspeex-dev libtheora-dev libtool libtool-bin libturbojpeg0-dev libvorbis-dev libx264-dev libxml2-dev libvpx-dev m4 make meson nasm ninja-build patch pkg-config tar zlib1g-dev python3-pip libvpx-dev curl python2.7
@@ -22,9 +22,11 @@ RUN /bin/bash install-rust.sh -y
 RUN /bin/bash -c 'source "$HOME/.cargo/env" && cargo install cargo-c && rustup target add  x86_64-pc-windows-gnu'
 
 # Handbrake from source
-RUN git clone https://github.com/HandBrake/HandBrake.git && cd HandBrake && git checkout 1.8.1
+RUN git clone https://github.com/HandBrake/HandBrake.git && cd HandBrake && git checkout 1.10.1
 RUN /bin/bash -c 'cd HandBrake && source "$HOME/.cargo/env" && ./configure --launch-jobs=$(nproc) --launch --disable-gtk --enable-libdovi'
 RUN /bin/bash -c 'cd HandBrake/build && make install'
+
+COPY /build /
 
 ADD . /Autorippr
 
